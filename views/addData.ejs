@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Add data :</h1>
+    <form  method="post" action="/StData">
+        <table>
+            <tr>
+                <td>Enter name :</td>
+                <td><input type="text" name="name"></td>
+            </tr>
+            
+            <tr>
+                <td>Enter age :</td>
+                <td><input type="text" name="age"></td>
+            </tr>
+
+            <tr>
+                <td>Select Gender :</td>
+                <td>
+                    <input type="radio" name="gender" value="Male">Male
+                    <input type="radio" name="gender" value="Female">Female
+                </td>
+            </tr>
+
+            <tr>
+                <td>Select Hobbys :</td>
+                <td>
+                    <input type="checkbox" name="hobby" value="Gaming">Gaming
+                    <input type="checkbox" name="hobby" value="Coding">Coding
+                    <input type="checkbox" name="hobby" value="riding">riding
+                    <input type="checkbox" name="hobby" value="writing">writing
+                </td>
+            </tr>
+
+            <% var cityarr = ['Surat','Ahemdabad','Vadodara']; %>
+            <tr>
+                <td>Select City :</td>
+                <td>
+                    <select name="city">
+                        <option value="">--Select hobby</option>
+                        <% cityarr.map((v)=>{ %>
+                            <option value="<%= v %>"><%= v %></option>
+                        <% }); %>
+                    </select>
+                </td>
+            </tr>
+            
+            <tr>
+                <td></td>
+                <td><input type="submit"></td>
+            </tr>
+        </table>
+    </form>
+    <a href="/viewData">View add Data</a>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Student Details :</h1>
+    <table border="1">
+        <tr>
+            <td>No</td>
+            <td>Name</td>
+            <td>Age</td>
+            <td>Gender</td>
+            <td>Hobbys</td>
+            <td>City</td>
+            <td>Actions</td>
+        </tr>
+        <%var i = 1; for(var v of stuData){ %>
+        <tr>
+            <td><%= i %></td>
+            <td><%= v.name %></td>
+            <td><%= v.age %></td>
+            <td><%= v.gender %></td>
+
+            <td>
+                <% var hobbyData = v.hobby.join()  %>
+                    <%= hobbyData %>
+            </td>
+
+            <td><%= v.city %></td>
+            <td>
+                 <a href="/deleteData/<%= v.id %>">Delete</a> || 
+                 <a href="/updateData/<%= v.id %>">Update</a> 
+            </td>
+        </tr>
+        <%i++; }; %>
+    </table>
+    <a href="/">add more Data</a>
+</body>
+</html>

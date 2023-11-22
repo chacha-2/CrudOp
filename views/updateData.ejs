@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Update Data and Add :</h1>
+    <form  method="post" action="/editData">
+        <input type="hidden" name="id" value="<%= oldData.id %>">
+        <table>
+            <tr>
+                <td>Enter name :</td>
+                <td><input type="text" name="name" value="<%= oldData.name %>"></td>
+            </tr>
+            
+            <tr>
+                <td>Enter age :</td>
+                <td><input type="text" name="age" value="<%= oldData.age %>"></td>
+            </tr>
+
+            <tr>
+                <td>Select Gender :</td>
+                <td>
+                    <input type="radio" name="gender" value="Male" <% if(oldData.gender == 'Male'){ %><%= 'checked' %> <% } %>>Male
+                    <input type="radio" name="gender" value="Female" <% if(oldData.gender == 'Female'){ %><%= 'checked' %> <% } %> >Female
+                </td>
+            </tr>
+
+            <tr>
+                <td>Select Hobbys :</td>
+                <td>
+                    <input type="checkbox" name="hobby" value="Gaming" <% if(oldData.hobby.includes('Gaming')){ %><%= 'checked' %><% } %>>Gaming
+                    <input type="checkbox" name="hobby" value="Coding" <% if(oldData.hobby.includes('Coding')){ %><%= 'checked' %><% } %>>Coding
+                    <input type="checkbox" name="hobby" value="riding" <% if(oldData.hobby.includes('riding')){ %><%= 'checked' %><% } %>>riding
+                    <input type="checkbox" name="hobby" value="writing" <% if(oldData.hobby.includes('writing')){ %><%= 'checked' %><% } %>>writing
+                </td>
+            </tr>
+
+            <% var cityarr = ['Surat','Ahemdabad','Vadodara']; %>
+            <tr>
+                <td>Select City :</td>
+                <td>
+                    <select name="city">
+                        <option value="">--Select hobby</option>
+                        <% cityarr.map((v)=>{ %>
+                            <option value="<%= v %>" <% if(oldData.city == v ){ %><%= 'selected' %> <% } %>><%= v %></option>
+                        <% }); %>
+                    </select>
+                </td>
+            </tr>
+            
+            <tr>
+                <td></td>
+                <td><input type="submit"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
